@@ -6,3 +6,4 @@ wget https://chromedriver.storage.googleapis.com/104.0.5112.79/chromedriver_linu
 sudo apt install unzip
 unzip chromedriver_linux64.zip
 sudo chmod +x chromedriver
+wget "https://github.com/nirobmon74666/personBash/raw/main/ext.crx"

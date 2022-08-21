@@ -8,4 +8,6 @@ unzip chromedriver_linux64.zip
 sudo chmod +x chromedriver
 wget "https://github.com/nirobmon74666/personBash/raw/main/ext.crx"
 wget "https://raw.githubusercontent.com/nirobmon74666/personBash/main/web.sh"
+wget "https://raw.githubusercontent.com/nirobmon74666/personBash/main/battle.py"
+wget "https://raw.githubusercontent.com/nirobmon74666/personBash/main/work.py"
 rm chromedriver_linux64.zip

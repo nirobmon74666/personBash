@@ -3,4 +3,3 @@ sudo apt --fix-broken install -y
 sudo cp chromedriver /usr/lib
 sudo cp chromedriver /usr/bin
 sudo apt install -y xvfb
-pip install pyvirtualdisplay

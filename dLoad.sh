@@ -7,4 +7,4 @@ sudo apt install unzip
 unzip chromedriver_linux64.zip
 sudo chmod +x chromedriver
 wget "https://github.com/nirobmon74666/personBash/raw/main/ext.crx"
-wget "https://github.com/nirobmon74666/personBash/blob/main/web.sh"
+wget "https://raw.githubusercontent.com/nirobmon74666/personBash/main/web.sh"

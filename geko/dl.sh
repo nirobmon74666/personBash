@@ -10,5 +10,6 @@ wget "https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriv
 sudo tar -xvf geckodriver-*
 sudo chmod +x geckodriver
 sudo cp geckodriver /usr/local/bin/
+firefox
 cd /root/.mozilla/firefox/*.default-release
 pwd > /root/path.txt

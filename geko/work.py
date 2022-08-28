@@ -1,5 +1,3 @@
-# import sys
-# sys.path.insert(0,'/usr/lib/chromedriver')
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -8,16 +6,11 @@ from selenium.webdriver.support import expected_conditions as EC
 import os
 import time
 from urllib.parse import urlparse
-from pyvirtualdisplay import Display
-display = Display(visible=0, size=(800, 600))
-display.start()
-chrome_options = webdriver.ChromeOptions()
-# chrome_options.add_argument('--headless')
-chrome_options.add_extension("ext.crx")
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-dev-shm-usage')
+# from pyvirtualdisplay import Display
+# display = Display(visible=0, size=(800, 600))
+# display.start()
 
-driver = webdriver.Chrome('chromedriver',options=chrome_options)
+driver = webdriver.Firefox('chromedriver',options=chrome_options)
 def logIn(user):
     #get method to Login
     driver.get("https://gridplays.com/login")

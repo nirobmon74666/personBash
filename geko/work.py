@@ -3,14 +3,22 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
-import os
-import time
-from urllib.parse import urlparse
 # from pyvirtualdisplay import Display
 # display = Display(visible=0, size=(800, 600))
 # display.start()
+import os
+import time
+from urllib.parse import urlparse
 
-driver = webdriver.Firefox('chromedriver',options=chrome_options)
+profile= webdriver.FirefoxProfile('/root/.mozilla/firefox/*.default-release')
+profile.add_extension(extension='ub.xpi')
+profile.set_preference("dom.webdriver.enabled", False)
+profile.set_preference('useAutomationExtension', False)
+profile.update_preferences()
+
+driver = webdriver.Firefox(firefox_profile=profile)
+driver.get("https://gridplays.com/")
+time.sleep(10)
 def logIn(user):
     #get method to Login
     driver.get("https://gridplays.com/login")

@@ -12,7 +12,7 @@ from urllib.parse import urlparse
 
 with open('path.txt') as f:
     proPath = f.read()
-truePath=proPath[:len(proPath)-1])
+truePath=proPath[:len(proPath)-1]
     
 profile= webdriver.FirefoxProfile(truePath)
 profile.add_extension(extension='ub.xpi')

@@ -10,7 +10,10 @@ import os
 import time
 from urllib.parse import urlparse
 
-profile= webdriver.FirefoxProfile('/root/.mozilla/firefox/*.default-release')
+with open('path.txt') as f:
+    proPath = f.read()
+    
+profile= webdriver.FirefoxProfile(proPath)
 profile.add_extension(extension='ub.xpi')
 profile.set_preference("dom.webdriver.enabled", False)
 profile.set_preference('useAutomationExtension', False)

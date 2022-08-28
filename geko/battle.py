@@ -1,25 +1,24 @@
-# import sys
-# sys.path.insert(0,'/usr/lib/chromedriver')
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
-from pyvirtualdisplay import Display
-display = Display(visible=0, size=(800, 600))
-display.start()
+# from pyvirtualdisplay import Display
+# display = Display(visible=0, size=(800, 600))
+# display.start()
 import os
 import time
 from urllib.parse import urlparse
-chrome_options = webdriver.ChromeOptions()
-# chrome_options.add_argument('--headless')
-chrome_options.add_extension("ext.crx")
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument("--window-size=100,80")
-chrome_options.add_argument('--blink-settings=imagesEnabled=false')
-chrome_options.add_argument('--disable-dev-shm-usage')
 
-driver = webdriver.Chrome('chromedriver',options=chrome_options)
+profile= webdriver.FirefoxProfile('/root/.mozilla/firefox/*.default-release')
+profile.add_extension(extension='ub.xpi')
+profile.set_preference("dom.webdriver.enabled", False)
+profile.set_preference('useAutomationExtension', False)
+profile.update_preferences()
+
+driver = webdriver.Firefox(firefox_profile=profile)
+driver.get("https://gridplays.com/")
+time.sleep(10)
 
 def logIN(user):
   #get method to Login
@@ -35,14 +34,6 @@ def logIN(user):
   print("\nPhone No. : 0{} and ID: {}   [LOGGED IN]".format(phone[user],user))
 
 #backp
-def getToken():
-    elements=driver.find_elements(By.TAG_NAME,'a')
-    for i in elements:
-        url=i.get_attribute("href")
-        item_query=urlparse(url).query
-        if len(item_query)>0:
-            token = item_query
-    return token
 def battle(executionNO):
   try:
       driver.get('https://gridplays.com/qute/arena/')
@@ -60,34 +51,49 @@ def battle(executionNO):
               myValue_ = driver.find_elements(By.XPATH,'/html/body/table/tbody/tr[9]/td[1]')[0]
               hp_my_=int(myValue_.text.split("/")[0])
           try:
+ 
               driver.get("https://gridplays.com/qute/battle/index/src/arena")
               oponent_piyo = driver.find_element(By.XPATH,"/html/body/table/tbody/tr[3]/td[2]").text
               turn_no = driver.find_element(By.XPATH,"/html/body/table/tbody/tr[2]/td").text
               if hp_my_<600:
                   driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div[2]/div/a/img").click()
               else:
-                  if oponent_piyo == "Earth Porcupine" or oponent_piyo == "Water Porcupine" or oponent_piyo == "Wind Ghost" or oponent_piyo == "Fire Drake":
+                  if oponent_piyo == "Alien Piyo":
+                      try:
+                          driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div[1]/div/a[1]/img").click()
+                      except:
+                          driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div[1]/div/a[3]/img").click()
+
+                  elif oponent_piyo == "Earth Porcupine" or oponent_piyo == "Water Porcupine":
                       if skill_exe==1:
-                          driver.get("https://gridplays.com/qute/battle/index/act/skill/id/7?{}".format(getToken()))
+                          driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div[1]/div/a[2]/img").click()
                           skill_exe=0
                       else:
-                          driver.get("https://gridplays.com/qute/battle/index/act/skill/id/1?{}".format(getToken()))
-                  else:
-                    # try:
-                    if skill_exe==1:
-                        skill_exe=0
-                        try:
-                            driver.get("https://gridplays.com/qute/battle/index/act/skill/id/21?{}".format(getToken()))
-                        except:
-                            driver.get("https://gridplays.com/qute/battle/index/act/skill/id/8?{}".format(getToken()))
-                    else:
-                        try:
-                            driver.get("https://gridplays.com/qute/battle/index/act/skill/id/1?{}".format(getToken()))
-                        except:
-                            driver.get("https://gridplays.com/qute/battle/index/act/skill/id/8?{}".format(getToken()))
+                          driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div[1]/div/a[3]/img").click()
 
-                    # except:
-                        # driver.get("https://gridplays.com/qute/battle/index/act/skill/id/1?{}".format(getToken()))
+                  elif oponent_piyo == "Big Onion" or oponent_piyo == "Pink Onion" or oponent_piyo == "Wood Trunk" or oponent_piyo == "Daisy Naga":
+                      if skill_exe==1:
+                          driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div[1]/div/a[4]/img").click()
+                          skill_exe=0
+                      else:
+                          driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div[1]/div/a[3]/img").click()
+
+                  elif oponent_piyo == "Stone Pig" or oponent_piyo == "Green Pig":
+                      if skill_exe==1:
+                          driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div[1]/div/a[2]/img").click()
+                          skill_exe=0
+                      else:
+                          driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div[1]/div/a[3]/img").click()
+
+                  elif  oponent_piyo == "Rockie" or oponent_piyo == "Ameoba" or oponent_piyo == "Killer Machine" or oponent_piyo == "Earth Naga" or oponent_piyo == "Bat" or oponent_piyo == "Mad Squirrel":
+                      if skill_exe==1:
+                          driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div[1]/div/a[1]/img").click()
+                          skill_exe=0
+                      else:
+                          driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div[1]/div/a[3]/img").click()
+                  else:
+                      driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div[1]/div/a[3]/img").click()
+
           except:
               continue
           opValue_ = driver.find_elements(By.XPATH,'/html/body/table/tbody/tr[7]/td[2]')[0]
@@ -114,7 +120,7 @@ def battle(executionNO):
                       driver.get("https://gridplays.com/logout")
                       print("Logout Successfull")
                       driver.close()
-                      display.close()
+                      display.stop()
                       break
                   driver.get('https://gridplays.com/qute/arena/index/act/ticket/id/420/src/battle')
                   driver.find_element(By.LINK_TEXT,"Next round").click()
@@ -129,7 +135,7 @@ def battle(executionNO):
       driver.get("https://gridplays.com/logout")
       print("Runtime Error")
       driver.close()
-      display.close()
+      display.stop()
 userNo=int(input("Enter User No: "))
 logIN(userNo)
 batNo=int(input("Enter Battle Count: "))

@@ -1,5 +1,5 @@
 sudo apt install python3
-sudo apt install pip
+sudo apt install pip -y
 pip install selenium
 pip install pyvirtualdisplay
 sudo apt install -y xvfb

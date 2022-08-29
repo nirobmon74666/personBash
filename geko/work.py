@@ -298,7 +298,7 @@ while user<13:
     memoryAll()
    # slotmachine()
     #feednPlay()
-    #reFillyo()
+    reFillyo()
     logOUT()
 driver.close()
 display.stop()

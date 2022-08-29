@@ -8,6 +8,7 @@ wget "https://raw.githubusercontent.com/nirobmon74666/personBash/main/geko/work.
 wget "https://github.com/nirobmon74666/personBash/raw/main/geko/ub.xpi"
 wget "https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-linux64.tar.gz"
 wget "https://raw.githubusercontent.com/nirobmon74666/personBash/main/geko/resolv.conf"
+wget "https://raw.githubusercontent.com/nirobmon74666/personBash/main/geko/T2S.py"
 mv ub.xpi uBlock0@raymondhill.net.xpi
 cd /root/.mozilla/firefox/*.default-release && mkdir extensions && cd ~
 sudo cp uBlock0@raymondhill.net.xpi /root/.mozilla/firefox/*.default-release/extensions

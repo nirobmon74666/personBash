@@ -15,7 +15,7 @@ with open('path.txt') as f:
 truePath=proPath[:len(proPath)-1]
     
 profile= webdriver.FirefoxProfile(truePath)
-profile.add_extension(extension='ub.xpi')
+profile.add_extension(extension="{}/extensions/uBlock0@raymondhill.net.xpi".format(truePath))
 profile.set_preference("dom.webdriver.enabled", False)
 profile.set_preference('useAutomationExtension', False)
 profile.update_preferences()

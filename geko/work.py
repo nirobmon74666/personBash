@@ -18,6 +18,7 @@ profile= webdriver.FirefoxProfile(truePath)
 profile.add_extension(extension="{}/extensions/uBlock0@raymondhill.net.xpi".format(truePath))
 profile.set_preference("dom.webdriver.enabled", False)
 profile.set_preference('useAutomationExtension', False)
+driver.set_window_size(100,80)
 profile.update_preferences()
 
 driver = webdriver.Firefox(firefox_profile=profile)

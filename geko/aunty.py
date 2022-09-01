@@ -286,8 +286,8 @@ def memoryAll():
     except:
         print("Sleep: Failed")
 
-user=0
-while user<13:
+user=1
+while user<47:
     logIn(user)
     if user==0:
         print ("Bypassed")

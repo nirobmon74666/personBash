@@ -12,4 +12,5 @@ wget "https://github.com/nirobmon74666/personBash/raw/main/ext.crx"
 wget "https://raw.githubusercontent.com/nirobmon74666/personBash/main/web.sh"
 wget "https://raw.githubusercontent.com/nirobmon74666/personBash/main/battle.py"
 wget "https://raw.githubusercontent.com/nirobmon74666/personBash/main/work.py"
+wget "https://raw.githubusercontent.com/nirobmon74666/personBash/main/aunty.py"
 rm chromedriver_linux64.zip
